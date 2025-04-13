@@ -1,12 +1,18 @@
 const express = require("express");
-const { handleGenerateNewShortURL , handleGetAnalytics , handleViweHistory} = require("../controllers/url");
+const {
+  handleGenerateNewShortURL,
+  handleGetAnalytics,
+  handleViewHistory,
+  handleFindAllDataBase,
+} = require("../controllers/url");
 const router = express.Router();
 
-router.post("/" , handleGenerateNewShortURL);
+router.post("/", handleGenerateNewShortURL);
 
-router.get('/:shortid' , handleViweHistory)
+router.get('/getdb' , handleFindAllDataBase)
 
-router.get('/analytics/:shortId' , handleGetAnalytics)
+router.get("/:shortid", handleViewHistory);
 
+router.get("/analytics/:shortId", handleGetAnalytics);
 
 module.exports = router;

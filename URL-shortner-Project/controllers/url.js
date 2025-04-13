@@ -14,8 +14,10 @@ const handleGenerateNewShortURL = async (req, res) => {
         redirectURL : body.url,
         visitHistory : []
     });
-
-    return res.send({ id: shortID})
+    return res.render('home' , {
+        id: shortID
+    })
+    // return res.send({ id: shortID})
 };
 
 const handleGetAnalytics = async (req , res) => {
@@ -27,7 +29,7 @@ const handleGetAnalytics = async (req , res) => {
     });
 } 
 
-const handleViweHistory = async (req , res) => {
+const handleViewHistory = async (req , res) => {
     const shortId = req.params.shortid;
     const entry   = await URL.findOneAndUpdate({
         shortId 
@@ -40,8 +42,14 @@ const handleViweHistory = async (req , res) => {
     res.redirect(entry.redirectURL);
 }
 
+const handleFindAllDataBase = async (req , res) => {
+    const data = await URL.find();
+    res.send(data);
+}
+
 module.exports = {
     handleGenerateNewShortURL,
     handleGetAnalytics,
-    handleViweHistory
+    handleViewHistory,
+    handleFindAllDataBase
 }
