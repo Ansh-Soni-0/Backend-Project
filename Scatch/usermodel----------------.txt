@@ -1,0 +1,25 @@
+usermodel----------------
+fullname - string
+email - string
+password - string
+cart - array
+isadmin - boolean
+order - array
+contact - number
+picture - string- db
+
+
+
+product------------------
+image 
+name 
+discount 
+price 
+bgcolor 
+panelcolor 
+textcolor 
+
+----------kababcase---------
+hyphen in each word
+ashu-soni
+kabab-case
